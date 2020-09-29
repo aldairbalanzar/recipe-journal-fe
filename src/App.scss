@@ -1,0 +1,50 @@
+html {
+    background-color: snow;
+}
+
+.app {
+    margin: 3% auto 0;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .nav-container {
+        width: 100%;
+        border: solid 2px plum;
+    }
+
+    .app-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 3% 0 0;
+            .field-container {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .input-field[type=text] {
+                    width: 100%;
+                    border: solid 2px red;
+                    background-color: steelblue;
+                }
+            }
+            .button-submit {
+                margin: 3% 0 0;
+            }
+        }
+    }
+}
