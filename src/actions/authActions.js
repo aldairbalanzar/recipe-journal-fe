@@ -37,6 +37,7 @@
             type: LOGIN_SUCCESS,
             payload: res.data
         })
+        window.localStorage.setItem('token', JSON.stringify(res.data.token));
     })
     .catch(err => {
         console.log('err: ', err)

@@ -3,7 +3,7 @@ import Nav from './components/Nav';
 import Title from './components/Title';
 import Register from './components/Register';
 import Login from './components/Login';
-import Recipes from './components/Recipes';
+import Dashboard from './components/Dashboard';
 import './App.css';
 import './App.scss';
 
@@ -22,7 +22,7 @@ function App() {
       <Title setNavState={setNavState} />
       {navState === 1 && <Register />}
       {navState === 2 && <Login setUserData={setUserData} userData={userData} />}
-      {navState === 3 && <Recipes userData={userData} />}
+      {navState === 3 && <Dashboard userData={userData} />}
     </div>
   );
 }
