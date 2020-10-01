@@ -24,7 +24,7 @@ const Dashboard = (props) => {
             <h3 className='username'>User: {props.userData.username}</h3>
             <div className='recipe-list'>
                 {props.recipesData.recipes.map(recipe => (
-                    <RecipeCard recipe={recipe} />
+                    <RecipeCard key={recipe.id} recipe={recipe} />
                 ))}
             </div>
             {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}

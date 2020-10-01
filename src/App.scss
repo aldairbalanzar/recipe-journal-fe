@@ -76,7 +76,7 @@ html {
         .recipe-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-evenly;
 
             .recipe-card {
                 width: 30%;
@@ -87,6 +87,7 @@ html {
 
                 .recipe-name {
                     width: 60%;
+                    margin: 0;
                 }
                 .card-delete {
                     width: 30%;
