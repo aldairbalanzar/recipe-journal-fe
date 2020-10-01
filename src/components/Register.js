@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { TextField, RaisedButton } from 'material-ui';
 import { postRegisterCredentials } from '../actions/authActions';
 import { connect } from 'react-redux';
@@ -10,7 +9,6 @@ const Register = (props) => {
     username: '',
     password: ''
   })
-
   const [message, setMessage] = useState(null)
   
   const handleChanges = e => {
@@ -39,39 +37,37 @@ const Register = (props) => {
 
   return (
     <div className="form-container">
-      <MuiThemeProvider>
-        <form onSubmit={handleSubmit}>
-          <h3>Register</h3>
+      <form onSubmit={handleSubmit}>
+        <h3>Register</h3>
 
-          <label className='field-container' htmlFor="username">
-              <TextField
-              className='input-field'
-              type="text"
-              onChange={handleChanges}
-              name='username'
-              value={credentials.username}
-              placeholder='username'
-              floatingLabelText='username'
-              />
-          </label>
+        <label className='field-container' htmlFor="username">
+            <TextField
+            className='input-field'
+            type="text"
+            onChange={handleChanges}
+            name='username'
+            value={credentials.username}
+            placeholder='username'
+            floatingLabelText='username'
+            />
+        </label>
 
-          <label className='field-container' htmlFor="password">
-              <TextField
-              className='input-field'
-              type="text"
-              onChange={handleChanges}
-              name='password'
-              value={credentials.password}
-              placeholder='password'
-              floatingLabelText='password'
-              />
-          </label>
+        <label className='field-container' htmlFor="password">
+            <TextField
+            className='input-field'
+            type="text"
+            onChange={handleChanges}
+            name='password'
+            value={credentials.password}
+            placeholder='password'
+            floatingLabelText='password'
+            />
+        </label>
 
-        <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
-        </form>
+      <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
+      </form>
 
-        <p>{props.userData.message ? props.userData.message : null}</p>
-      </MuiThemeProvider>
+      <p>{props.userData.message ? props.userData.message : null}</p>
     </div>
   );
 }

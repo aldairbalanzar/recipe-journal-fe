@@ -11,7 +11,21 @@ html {
 
     .nav-container {
         width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         border: solid 2px plum;
+        ul {
+            width: 14%;
+            a {
+                li {
+
+                    border: 2px solid peachpuff;
+                }
+            }
+        }
+        h1 {
+            width: 64%;
+        }
     }
 
     .app-title {
@@ -31,6 +45,12 @@ html {
             flex-wrap: wrap;
             justify-content: center;
             margin: 3% 0 0;
+            border: 2px solid pink;
+
+            .form-title {
+                width: 100%;
+                text-align: center;
+            }
             .field-container {
                 width: 100%;
                 display: flex;
@@ -38,8 +58,9 @@ html {
                 justify-content: center;
                 .input-field[type=text] {
                     width: 100%;
-                    border: solid 2px red;
-                    background-color: steelblue;
+                }
+                .text-area {
+                    width: 100%;
                 }
             }
             .button-submit {
