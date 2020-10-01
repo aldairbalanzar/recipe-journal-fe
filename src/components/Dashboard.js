@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddRecipeForm from './AddRecipeForm';
-import { TextField, RaisedButton } from 'material-ui';
+import RecipeCard from './RecipeCard';
+import { RaisedButton } from 'material-ui';
 import { getRecipes } from '../actions/recipesActions';
 import { connect } from 'react-redux';
 
@@ -23,13 +24,7 @@ const Dashboard = (props) => {
             <h3 className='username'>User: {props.userData.username}</h3>
             <div className='recipe-list'>
                 {props.recipesData.recipes.map(recipe => (
-                    <div key={recipe.id} className='recipe-card'>
-                        <h3 className='recipe-name'>{recipe.recipeName}</h3>
-                        <p className='description'>{recipe.description}</p>
-                        <p className='recipe-info'>{recipe.prepTime}</p>
-                        <p className='recipe-info'>{recipe.cookTime}</p>
-                        <p className='recipe-info'>{recipe.yields}</p>
-                    </div>
+                    <RecipeCard recipe={recipe} />
                 ))}
             </div>
             {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}

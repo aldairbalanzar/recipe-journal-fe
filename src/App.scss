@@ -80,7 +80,23 @@ html {
 
             .recipe-card {
                 width: 30%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
                 border: 2px solid tomato;
+
+                .recipe-name {
+                    width: 60%;
+                }
+                .card-delete {
+                    width: 30%;
+                }
+                .description {
+                    width: 100%;
+                }
+                recipe-info {
+                    width: 30%;
+                }
             }
         }
     }

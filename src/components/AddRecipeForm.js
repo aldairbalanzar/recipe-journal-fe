@@ -10,6 +10,7 @@ const AddRecipeForm = (props) => {
         description: '',
         prepTime: '',
         cookTime: '',
+        yields: '',
         recipeImageURL: ''
     });
     const [message, setMessage] = useState('')
@@ -89,7 +90,7 @@ const AddRecipeForm = (props) => {
                     />
                 </label>
 
-                <label className='field-container' htmlFor="description">
+                <label className='field-container' htmlFor="cookTime">
                     <TextField
                     className='input-field'
                     type="text"
@@ -99,6 +100,19 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.cookTime}
                     placeholder='Cook Time'
                     floatingLabelText='Cook Time'
+                    />
+                </label>
+
+                <label className='field-container' htmlFor="yields">
+                    <TextField
+                    className='input-field'
+                    type="text"
+                    onChange={handleChanges}
+                    id='yields'
+                    name='yields'
+                    value={newRecipe.yields}
+                    placeholder='Yields'
+                    floatingLabelText='Yields'
                     />
                 </label>
                 
