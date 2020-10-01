@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Nav from './components/Nav';
-import Title from './components/Title';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -18,11 +18,13 @@ function App() {
 
   return (
     <div className='app'>
-      <Nav setNavState={setNavState} />
-      <Title setNavState={setNavState} />
-      {navState === 1 && <Register />}
-      {navState === 2 && <Login setUserData={setUserData} userData={userData} />}
-      {navState === 3 && <Dashboard userData={userData} />}
+      <MuiThemeProvider>
+        <Nav setNavState={setNavState} />
+        {/* <Title setNavState={setNavState} /> */}
+        {navState === 1 && <Register />}
+        {navState === 2 && <Login setUserData={setUserData} userData={userData} />}
+        {navState === 3 && <Dashboard userData={userData} />}
+      </MuiThemeProvider>
     </div>
   );
 }

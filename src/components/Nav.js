@@ -8,6 +8,7 @@ const Nav = ({setNavState}) => {
                 <a onClick={() => {setNavState(2)}}><li>Login</li></a>
                 <a onClick={() => {setNavState(3)}}><li>Recipes</li></a>
             </ul>
+            <h1 className='app-title'>Recipe Journal</h1>
         </nav>
     )
 }

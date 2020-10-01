@@ -6,7 +6,7 @@ const init = {
     imageURL: '',
     message: '',
     err: '',
-    isPosting: false
+    isPostingRecipe: false
 }
 
 const authReducer = (state=init, action={}) => {
@@ -14,25 +14,25 @@ const authReducer = (state=init, action={}) => {
         case REGISTER_INIT:
             return {
                 ...state,
-                isPosting: true
+                isPostingRecipe: true
             }
         case REGISTER_SUCCESS:
             return {
                 ...state,
                 message: action.payload.message,
-                isPosting: false
+                isPostingRecipe: false
             }
         case REGISTER_ERROR:
             return {
                 ...state,
                 message: action.payload.message,
                 err: action.payload.err,
-                isPosting: false
+                isPostingRecipe: false
             }
         case LOGIN_INIT:
             return {
                 ...state,
-                isPosting: true
+                isPostingRecipe: true
             }
         case LOGIN_SUCCESS:
             return {
@@ -41,14 +41,14 @@ const authReducer = (state=init, action={}) => {
                 username: action.payload.username,
                 imageURL: action.payload.imageURL,
                 message: action.payload.message,
-                isPosting: false,
+                isPostingRecipe: false,
             }
         case LOGIN_ERROR:
             return {
                 ...state,
                 message: action.payload.message,
                 err: action.payload.err,
-                isPosting: false
+                isPostingRecipe: false
             }
         default:
             return state

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { TextField, RaisedButton } from 'material-ui';
 import { postLoginCredentials } from '../actions/authActions'
 import { connect } from 'react-redux';
@@ -10,7 +9,6 @@ const Login = (props) => {
     username: '',
     password: ''
   })
-
   const [message, setMessage] = useState(null)
   
   const handleChanges = e => {
@@ -37,46 +35,43 @@ const Login = (props) => {
     })
   }
   
-  // console.log('state: ', props)
-  console.log('credentials', credentials)
+  // console.log('credentials', credentials)
 
   return (
     <div className="form-container">
-      <MuiThemeProvider>
-        <form onSubmit={handleSubmit}>
-            <h3>Login</h3>
+      <form onSubmit={handleSubmit}>
+          <h3>Login</h3>
 
-            <label className='field-container' htmlFor="username">
-                <TextField
-                className='input-field'
-                type="text"
-                onChange={handleChanges}
-                id='username'
-                name='username'
-                value={credentials.username}
-                placeholder='username'
-                floatingLabelText='username'
-                />
-            </label>
+          <label className='field-container' htmlFor="username">
+              <TextField
+              className='input-field'
+              type="text"
+              onChange={handleChanges}
+              id='username'
+              name='username'
+              value={credentials.username}
+              placeholder='username'
+              floatingLabelText='username'
+              />
+          </label>
 
-            <label className='field-container' htmlFor="password">
-                <TextField
-                className='input-field'
-                type="text"
-                onChange={handleChanges}
-                id='password'
-                name='password'
-                value={credentials.password}
-                placeholder='password'
-                floatingLabelText='password'
-                />
-            </label>
-            
-          <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
-        </form>
+          <label className='field-container' htmlFor="password">
+              <TextField
+              className='input-field'
+              type="text"
+              onChange={handleChanges}
+              id='password'
+              name='password'
+              value={credentials.password}
+              placeholder='password'
+              floatingLabelText='password'
+              />
+          </label>
+          
+        <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
+      </form>
 
-        <p>{props.userData.message ? props.userData.message : null}</p>
-      </MuiThemeProvider>
+      <p>{props.userData.message ? props.userData.message : null}</p>
     </div>
   )
 }
