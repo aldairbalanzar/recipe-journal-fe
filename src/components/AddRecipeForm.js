@@ -39,6 +39,7 @@ const AddRecipeForm = (props) => {
           cookTime: '',
           recipeImageURL: ''
         })
+        props.setIsCreatingRecipe(false)
       };
 
     // console.log('newRecipe: ', newRecipe)

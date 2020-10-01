@@ -18,18 +18,20 @@ const Dashboard = (props) => {
     }, []);
 
     return (
-        <div>
+        <div className='dashboard'>
             <h3 className='user-id'>id: {props.userData.id}</h3>
             <h3 className='username'>User: {props.userData.username}</h3>
-            {props.recipesData.recipes.map(recipe => (
-                <div key={recipe.id}>
-                    <h3>{recipe.recipeName}</h3>
-                    <p>{recipe.description}</p>
-                    <p>{recipe.prepTime}</p>
-                    <p>{recipe.cookTime}</p>
-                    <p>{recipe.yields}</p>
-                </div>
-            ))}
+            <div className='recipe-list'>
+                {props.recipesData.recipes.map(recipe => (
+                    <div key={recipe.id} className='recipe-card'>
+                        <h3 className='recipe-name'>{recipe.recipeName}</h3>
+                        <p className='description'>{recipe.description}</p>
+                        <p className='recipe-info'>{recipe.prepTime}</p>
+                        <p className='recipe-info'>{recipe.cookTime}</p>
+                        <p className='recipe-info'>{recipe.yields}</p>
+                    </div>
+                ))}
+            </div>
             {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
             <RaisedButton className='button-add-recipe' onClick={toggleCreateRecipeForm}>Create Recipe</RaisedButton>
         </div>

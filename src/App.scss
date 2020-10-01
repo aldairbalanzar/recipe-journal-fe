@@ -18,8 +18,9 @@ html {
             width: 14%;
             a {
                 li {
-
+                    list-style: none;
                     border: 2px solid peachpuff;
+                    text-align: center;
                 }
             }
         }
@@ -65,6 +66,21 @@ html {
             }
             .button-submit {
                 margin: 3% 0 0;
+            }
+        }
+    }
+
+    .dashboard {
+        width: 100%;
+        
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .recipe-card {
+                width: 30%;
+                border: 2px solid tomato;
             }
         }
     }
