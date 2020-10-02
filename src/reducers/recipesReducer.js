@@ -5,7 +5,7 @@ import {
     RECIPES_POST_INIT,
     RECIPES_POST_SUCCESS,
     RECIPES_POST_ERROR,
-    TOGGLE_CREATE_RECIPE_FORM, RECIPES_DELETE_INIT, RECIPES_DELETE_SUCCESS, RECIPES_DELETE_ERROR 
+    TOGGLE_CREATE_RECIPE_FORM, RECIPES_DELETE_INIT, RECIPES_DELETE_SUCCESS, RECIPES_DELETE_ERROR, RECIPES_PUT_SUCCESS, RECIPES_PUT_ERROR 
 } from '../actions/recipesActions';
 
 const init = {
@@ -55,11 +55,28 @@ const recipesReducer = (state=init, action={}) => {
                 message: action.payload.message,
                 isPosting: false
             }
+        case RECIPES_POST_INIT:
+            return {
+                ...state,
+                isPutting: true,
+            }
+        case RECIPES_PUT_SUCCESS:
+            return {
+                ...state,
+                message: action.payload.message,
+                recipes: [...action.payload.recipes],
+                isPutting: false
+            }
+        case RECIPES_PUT_ERROR:
+            return {
+                ...state,
+                message: action.payload.message,
+                isPutting: false
+            }
         case RECIPES_DELETE_INIT:
             return {
                 ...state,
                 isDeleting: true,
-
             }
         case RECIPES_DELETE_SUCCESS:
             return {
@@ -72,7 +89,6 @@ const recipesReducer = (state=init, action={}) => {
             return {
                 ...state,
                 message: action.payload.message,
-                recipes: [...action.payload.recipes],
                 isDeleting: false,
             }
         default:

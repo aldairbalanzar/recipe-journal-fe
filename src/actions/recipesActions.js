@@ -7,6 +7,9 @@ export const RECIPES_GET_ERROR = 'RECIPES_GET_ERROR';
 export const RECIPES_POST_INIT = 'RECIPES_POST_INIT';
 export const RECIPES_POST_SUCCESS = 'RECIPES_POST_SUCCESS';
 export const RECIPES_POST_ERROR = 'RECIPES_POST_ERROR';
+export const RECIPES_PUT_INIT = 'RECIPES_PUT_INIT';
+export const RECIPES_PUT_SUCCESS = 'RECIPES_PUT_SUCCESS';
+export const RECIPES_PUT_ERROR = 'RECIPES_PUT_ERRROR';
 export const RECIPES_DELETE_INIT = 'RECIPES_DELETE_INIT';
 export const RECIPES_DELETE_SUCCESS = 'RECIPES_DELETE_SUCCESS';
 export const RECIPES_DELETE_ERROR = 'RECIPES_DELETE_ERROR';
@@ -46,6 +49,26 @@ export const postRecipe = (newRecipe, userId) => dispatch => {
         console.log('err: ', err)
         dispatch({
             type: RECIPES_POST_ERROR,
+            payload: err
+        })
+    })
+};
+
+export const updateRecipe = (recipeUpdate, userId) => dispatch => {
+    dispatch({ type: RECIPES_PUT_INIT })
+    axiosWithAuth()
+    .put(`/api/recipes/${userId}`, recipeUpdate)
+    .then(res => {
+        console.log('updateRecipe: ', res.data)
+        dispatch({
+            type: RECIPES_PUT_SUCCESS,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch({
+            type: RECIPES_DELETE_ERROR,
             payload: err
         })
     })
