@@ -1,49 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { TextField, RaisedButton } from 'material-ui';
-import { postRecipe } from '../actions/recipesActions';
+import { updateRecipe } from '../actions/recipesActions';
 import { connect } from 'react-redux';
 
-const AddRecipeForm = (props) => {
-    
-    const [newRecipe, setNewRecipe] = useState({
-        recipeName: '',
-        description: '',
-        prepTime: '',
-        cookTime: '',
-        yields: '',
-        recipeImageURL: ''
+const UpdateRecipeForm = (props) => {
+    const [recipeUpdate, setRecipeUpdate] = useState({
+        ...props.recipe
     });
-    const [message, setMessage] = useState('')
 
     const handleChanges = e => {
         e.preventDefault()
-        setNewRecipe({
-          ...newRecipe,
-          [e.target.name]: e.target.value
+        setRecipeUpdate({
+        ...recipeUpdate,
+        [e.target.name]: e.target.value
         })
-      };
-    
-      const handleSubmit = e => {
-        e.preventDefault()
-    
-        if(!newRecipe.recipeName) {
-            setMessage('Please provide required fields before submitting')
-            return
-        }
-    
-        console.log('newRecipe submit: ', newRecipe)
-        props.postRecipe(newRecipe, props.userData.id)
-        setNewRecipe({
-          recipeName: '',
-          description: '',
-          prepTime: '',
-          cookTime: '',
-          recipeImageURL: ''
-        })
-        props.setIsCreatingRecipe(false)
-      };
+    };
 
-    // console.log('newRecipe: ', newRecipe)
+    const handleSubmit = e => {
+        e.preventDefault()
+        props.updateRecipe(recipeUpdate, props.recipe.userId)
+        props.setIsUpdating(!props.isUpdating)
+    };
 
     return (
         <div className='form-container'>
@@ -57,7 +34,7 @@ const AddRecipeForm = (props) => {
                     onChange={handleChanges}
                     id='recipeName'
                     name='recipeName'
-                    value={newRecipe.recipeName}
+                    value={recipeUpdate.recipeName}
                     placeholder='Recipe Name'
                     floatingLabelText='Recipe Name'
                     />
@@ -71,7 +48,7 @@ const AddRecipeForm = (props) => {
                     onChange={handleChanges}
                     id='description'
                     name='description'
-                    value={newRecipe.description}
+                    value={recipeUpdate.description}
                     placeholder='Description'
                     floatingLabelText='Description'
                     />
@@ -84,7 +61,7 @@ const AddRecipeForm = (props) => {
                     onChange={handleChanges}
                     id='prepTime'
                     name='prepTime'
-                    value={newRecipe.prepTime}
+                    value={recipeUpdate.prepTime}
                     placeholder='Prep Time'
                     floatingLabelText='Prep Time'
                     />
@@ -97,7 +74,7 @@ const AddRecipeForm = (props) => {
                     onChange={handleChanges}
                     id='cookTime'
                     name='cookTime'
-                    value={newRecipe.cookTime}
+                    value={recipeUpdate.cookTime}
                     placeholder='Cook Time'
                     floatingLabelText='Cook Time'
                     />
@@ -110,16 +87,14 @@ const AddRecipeForm = (props) => {
                     onChange={handleChanges}
                     id='yields'
                     name='yields'
-                    value={newRecipe.yields}
+                    value={recipeUpdate.yields}
                     placeholder='Yields'
                     floatingLabelText='Yields'
                     />
                 </label>
                 
-                <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
+                <RaisedButton className='button-submit' type='submit'>Update</RaisedButton>
             </form>
-
-            <p>{message ? message : null}</p>
         </div>
     )
 }
@@ -129,5 +104,5 @@ const mapStateToProps = state => {
         userData: state.authReducer,
     }
   };
-  
-  export default connect(mapStateToProps, { postRecipe })(AddRecipeForm);
+
+export default connect(mapStateToProps, { updateRecipe })(UpdateRecipeForm);
