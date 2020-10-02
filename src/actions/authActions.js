@@ -38,6 +38,8 @@
             payload: res.data
         })
         window.localStorage.setItem('token', JSON.stringify(res.data.token));
+        window.localStorage.setItem('id', JSON.stringify(res.data.id))
+        window.localStorage.setItem('username', JSON.stringify(res.data.username))
     })
     .catch(err => {
         console.log('err: ', err)
