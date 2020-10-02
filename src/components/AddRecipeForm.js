@@ -47,7 +47,7 @@ const AddRecipeForm = (props) => {
 
     return (
         <div className='form-container'>
-            <form onSubmit={handleSubmit}>
+            <form className='add-recipe' onSubmit={handleSubmit}>
                 <h3 className='form-title'>New Recipe</h3>
 
                 <label className='field-container' htmlFor="recipeName">

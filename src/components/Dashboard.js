@@ -16,7 +16,9 @@ const Dashboard = (props) => {
     useEffect(() => {
         console.log('useEffect')
         props.getRecipes(props.userData.id)
-    }, []);
+    }, [props.userData]);
+
+    console.log(props.userData)
 
     return (
         <div className='dashboard'>

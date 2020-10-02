@@ -1,8 +1,8 @@
 import { REGISTER_INIT, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_INIT, LOGIN_SUCCESS, LOGIN_ERROR } from "../actions/authActions";
 
 const init = {
-    id: '',
-    username: '',
+    id: '' || JSON.parse(localStorage.getItem('id')),
+    username: '' || JSON.parse(localStorage.getItem('username')),
     imageURL: '',
     message: '',
     err: '',

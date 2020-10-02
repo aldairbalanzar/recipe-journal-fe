@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { updateRecipe, deleteRecipe } from '../actions/recipesActions';
+import { getRecipeData } from '../actions/currentRecipeActions';
 import { connect } from 'react-redux';
 import UpdateRecipeForm from './UpdateRecipeForm';
 
@@ -14,17 +16,28 @@ const RecipeCard = (props) => {
     const handleDelete = (recipeId, userId) => {
         props.deleteRecipe(recipeId, userId)
     };
+    const handleCardData = (userId, recipeId) => {
+        console.log('userId: ', userId)
+        console.log('recipeId: ', recipeId)
+        props.getRecipeData(userId, recipeId)
+    }
 
 
     return (
         <div key={props.recipe.id} className='recipe-card'>
-            <h3 className='recipe-name'>{props.recipe.recipeName}</h3>
-            <i className='card-delete' onClick={() => {handleDelete(props.recipe.id, props.recipe.userId)}}>X</i>
-            <i className='card-toggle' onClick={toggleIsUpdating}>Update</i>
+            <Link onClick={() => {handleCardData(props.userData.id, props.recipe.id)}}  to='/selected'>
+                <h3 className='recipe-name'>{props.recipe.recipeName}</h3>
+            </Link>
+            <div className='card-actions-container'>
+                <i className='card-toggle fas fa-edit' onClick={toggleIsUpdating}></i>
+                <i className='card-delete fas fa-times' onClick={() => {handleDelete(props.recipe.id, props.recipe.userId)}}></i>
+            </div>
             <p className='description'>{props.recipe.description}</p>
-            <p className='recipe-info'>{props.recipe.prepTime}</p>
-            <p className='recipe-info'>{props.recipe.cookTime}</p>
-            <p className='recipe-info'>{props.recipe.yields}</p>
+            <div className='recipe-info-container'>
+                <p className='recipe-info'>Prep Time: <span>{props.recipe.prepTime}</span></p>
+                <p className='recipe-info'>Cooking Time: <span>{props.recipe.cookTime}</span></p>
+                <p className='recipe-info'>Yields: <span>{props.recipe.yields}</span></p>
+            </div>
             {isUpdating && <UpdateRecipeForm isUpdating={isUpdating} setIsUpdating={setIsUpdating} recipe={props.recipe} />}
         </div>
     )
@@ -36,4 +49,4 @@ const mapStateToProps = state => {
     }
   };
   
-export default connect(mapStateToProps, { updateRecipe, deleteRecipe })(RecipeCard);
+export default connect(mapStateToProps, { updateRecipe, deleteRecipe, getRecipeData })(RecipeCard);
