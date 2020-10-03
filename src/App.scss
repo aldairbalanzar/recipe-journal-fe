@@ -142,16 +142,21 @@ html {
 
     .dashboard {
         width: 100%;
+
+        .user-data-container {
+            border: 2px solid pink;
+            padding: 2% 0;
+        }
         
         .recipe-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 3% 0 5%;
+            margin: 1% 0 5%;
 
             .recipe-card {
                 background-color: rgb(237, 241, 247);
-                width: 26%;
+                width: 30%;
                 height: auto;
                 padding: 1% 2%;
                 display: flex;
@@ -170,36 +175,36 @@ html {
                     }
                 }
 
-                a {
-                    width: 78%;
+                .name-link {
+                    width: 80%;
                     text-decoration: none;
                     color: rgb(95, 97, 97);
                     transition: .25s;
 
-                    .recipe-name {
-                        width: 100%;
-                        font-size: 1.3rem;
-                        margin: 0;
+                    div {
+                        width: 70%;
+
+                        .recipe-name {
+                            width: 100%;
+                            font-size: 1.4rem;
+                            margin: 0 0 3%;
+                        }
                     }
+
                 }
 
-                .description {
-                    width: 100%;
-                    background-color: snow;
-                    padding: 2% 3%;
-                    border-radius: 7px;
-                }
                 .card-actions-container {
-                    width: 22%;
+                    width: 20%;
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: flex-end;
+                    justify-content: space-evenly;
                     align-items: center;
                     font-size: 1.1rem;
                     text-align: end;
+                    padding: 0 0 2%;
 
                     .card-toggle {
-                        width: 40%;
+                        width: 36%;
                         color: dimgrey;
                         vertical-align: middle;
                         transition: .25s;
@@ -210,7 +215,7 @@ html {
                         }
                     }
                     .card-delete {
-                        width: 40%;
+                        width: 36%;
                         color: dimgrey;
                         vertical-align: middle;
                         transition: .25s;
@@ -222,7 +227,28 @@ html {
                         }
                     }
                 }
-                .recipe-info-container {
+
+                a {
+                    width: 100%;
+                    div {
+                        width: 100%;
+                        .recipe-image {
+                            max-width: 100%;
+                            height: 220px;
+                            object-fit: cover;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+
+                .description {
+                    width: 100%;
+                    background-color: snow;
+                    padding: 2% 3%;
+                    margin: 3% 0 1%;
+                    border-radius: 7px;
+                }
+                .recipe-details-container {
                     width: 100%;
                     display: flex;
                     flex-wrap: wrap;
@@ -234,7 +260,7 @@ html {
                     }
                     .recipe-info {
                         width: 33%;
-                        margin: 1% 0;
+                        margin: 3% 0 1%;
                         font-size: .9rem;
                         
                         span {
@@ -253,6 +279,7 @@ html {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin: 4% 0 0;
 
         .recipe-name {
             width: 100%;
@@ -287,9 +314,15 @@ html {
                 width: 44%;
             }
 
-            .recipe-image {
-                width: auto;
-            }
         }
+                .image-container {
+                    border: 2px solid purple;
+                    width: 56%;
+                    .recipe-image {
+                        max-width: 100%;
+                        height: 360px;
+                        object-fit: contain;
+                    }
+                }
     }
 }

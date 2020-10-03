@@ -4,6 +4,7 @@ import { updateRecipe, deleteRecipe } from '../actions/recipesActions';
 import { getRecipeData } from '../actions/currentRecipeActions';
 import { connect } from 'react-redux';
 import UpdateRecipeForm from './UpdateRecipeForm';
+import foodPic from '../assets/food_pic.jpg'
 
 const RecipeCard = (props) => {
 
@@ -23,15 +24,22 @@ const RecipeCard = (props) => {
 
     return (
         <div key={props.recipe.id} className='recipe-card'>
-            <Link onClick={() => {handleCardData(props.userData.id, props.recipe.id)}}  to='/selected'>
-                <h3 className='recipe-name'>{props.recipe.recipeName}</h3>
+            <Link className='name-link' onClick={() => {handleCardData(props.userData.id, props.recipe.id)}}  to='/selected'>
+                <div>
+                    <h3 className='recipe-name'>{props.recipe.recipeName}</h3>
+                </div>
             </Link>
             <div className='card-actions-container'>
                 <i className='card-toggle fas fa-edit' onClick={toggleIsUpdating}></i>
                 <i className='card-delete fas fa-times' onClick={() => {handleDelete(props.recipe.id, props.recipe.userId)}}></i>
             </div>
+            <Link onClick={() => {handleCardData(props.userData.id, props.recipe.id)}}  to='/selected'>
+                <div>
+                    <img className='recipe-image' src={foodPic} alt="food"/>
+                </div>
+            </Link>
             <p className='description'>{props.recipe.description}</p>
-            <div className='recipe-info-container'>
+            <div className='recipe-details-container'>
                 <p className='recipe-info'>Prep Time: <span>{props.recipe.prepTime}</span></p>
                 <p className='recipe-info'>Cooking Time: <span>{props.recipe.cookTime}</span></p>
                 <p className='recipe-info'>Yields: <span>{props.recipe.yields}</span></p>
