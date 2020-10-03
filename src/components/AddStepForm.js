@@ -22,6 +22,10 @@ const AddStepForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault()
         props.postStep(newStep, props.userData.id, props.recipeData.recipe.id)
+        setNewStep({
+            stepNum: '',
+            stepInstruction: ''
+        })
     };
 
     return (
@@ -37,7 +41,7 @@ const AddStepForm = (props) => {
                     name='stepNum'
                     value={newStep.stepNum}
                     placeholder='Step Number'
-                    floatingLabelFixed='Step Number'
+                    floatingLabelText='Step Number'
                     />
                 </label>
 
@@ -50,7 +54,7 @@ const AddStepForm = (props) => {
                     name='stepInstruction'
                     value={newStep.stepInstruction}
                     placeholder='Instruction'
-                    floatingLabelFixed='Instruction'
+                    floatingLabelText='Instruction'
                     />
                 </label>
 
