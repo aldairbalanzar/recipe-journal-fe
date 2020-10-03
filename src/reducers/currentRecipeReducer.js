@@ -50,7 +50,8 @@ const currentRecipeReducer = (state=init, action={}) => {
         case INGREDIENT_POST_SUCCESS:
             return {
                 ...state,
-                ingredients: [...action.payload],
+                ingredients: [...state.ingredients, {...action.payload.response}],
+                message: action.payload.message,
                 isPosting: false
             }
         case INGREDIENT_POST_ERROR:
@@ -67,7 +68,7 @@ const currentRecipeReducer = (state=init, action={}) => {
         case STEP_POST_SUCCESS:
             return {
                 ...state,
-                steps: [...action.payload.response],
+                steps: [...action.payload.steps],
                 isPosting: false
             }
         case STEP_POST_ERROR:

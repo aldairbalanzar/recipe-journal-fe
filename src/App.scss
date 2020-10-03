@@ -1,3 +1,52 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 html {
     background-color: snow;
 }
@@ -194,6 +243,52 @@ html {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .current-recipe-container {
+        border: 2px solid plum;
+        width: 76%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .recipe-name {
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .details-container {
+            border: 2px solid tomato;
+            width: 40%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .description {
+                width: 100%;
+            }
+    
+            .recipe-info-container {
+                width: 100%;
+                
+                .recipe-info {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            .recipe-ingredients-container {
+                width: 44%;
+            }
+
+            .recipe-steps-container {
+                width: 44%;
+            }
+
+            .recipe-image {
+                width: auto;
             }
         }
     }

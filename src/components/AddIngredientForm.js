@@ -22,6 +22,10 @@ const AddIngredientForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault()
         props.postIngredient(newIngredient, props.userData.id, props.recipeData.recipe.id)
+        setNewIngredient({
+            ingredientName: '',
+            amount: ''
+        })
     };
 
     return (
