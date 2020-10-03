@@ -17,8 +17,6 @@ const RecipeCard = (props) => {
         props.deleteRecipe(recipeId, userId)
     };
     const handleCardData = (userId, recipeId) => {
-        console.log('userId: ', userId)
-        console.log('recipeId: ', recipeId)
         props.getRecipeData(userId, recipeId)
     }
 
