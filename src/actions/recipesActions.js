@@ -14,7 +14,6 @@ export const RECIPES_DELETE_SUCCESS = 'RECIPES_DELETE_SUCCESS';
 export const RECIPES_DELETE_ERROR = 'RECIPES_DELETE_ERROR';
 
 export const getRecipes = userId => dispatch => {
-    console.log(userId)
     dispatch({ type: RECIPES_GET_INIT })
     axiosWithAuth()
     .get(`/api/recipes/${userId}`)
