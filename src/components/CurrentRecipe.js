@@ -45,13 +45,17 @@ const CurrentRecipe = (props) => {
                     <p>Ingredients:</p>
                     {props.recipeData.ingredients.map(ingredient => (
                         <div key={ingredient.id}>
-                            <p>{ingredient.ingredientName}</p>
-                            <p>{ingredient.amount}</p>
+                            <p>{ingredient.ingredientName} - {ingredient.amount}</p>
                         </div>
                     ))}
-                    <RaisedButton onClick={() => {toggleDataForm('ingredient')}}>
-                        {isAddingIngredient ? 'cancel' : 'Add Ingredient'}
-                    </RaisedButton>
+                    <div className='button-container'>
+                        <RaisedButton  onClick={() => {toggleDataForm('ingredient')}}>
+                            {isAddingIngredient
+                            ? 'Cancel'
+                            : <i class="fas fa-plus"> Ingredient</i>
+                            }
+                        </RaisedButton>
+                    </div>
                     {isAddingIngredient && <AddIngredientForm />}
                 </div>
 
@@ -59,13 +63,17 @@ const CurrentRecipe = (props) => {
                     <p>Steps:</p>
                     {props.recipeData.steps.map(step => (
                         <div key={step.id}>
-                            <p>{step.stepNum}</p>
-                            <p>{step.stepInstruction}</p>
+                            <p>{step.stepNum}. {step.stepInstruction}</p>
                         </div>
                     ))}
-                    <RaisedButton onClick={() => {toggleDataForm('step')}}>
-                        {isAddingStep ? 'cancel' : 'Add Step'}
-                    </RaisedButton>
+                    <div className='button-container'>
+                        <RaisedButton  onClick={() => {toggleDataForm('step')}}>
+                            {isAddingStep
+                            ? 'Cancel'
+                            : <i class="fas fa-plus"> Step</i>
+                            }
+                        </RaisedButton>
+                    </div>
                     {isAddingStep && <AddStepForm />}
                 </div>
             </div>

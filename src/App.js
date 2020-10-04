@@ -23,12 +23,14 @@ function App() {
       <div className='app'>
         <MuiThemeProvider>
           <Nav setNavState={setNavState} />
+          <div className='app-content-container'>
             <Switch>
               <Route path='/register' component={Register} />
               <Route path='/' exact component={Login} />
               <Route path='/dashboard' component={Dashboard} />
               <Route path='/selected' component={CurrentRecipe} />
             </Switch>
+          </div>
         </MuiThemeProvider>
       </div>
     </Router>
