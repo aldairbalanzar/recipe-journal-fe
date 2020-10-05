@@ -68,7 +68,7 @@ const CurrentRecipe = (props) => {
                         <RaisedButton  onClick={() => {toggleDataForm('step')}}>
                             {isAddingStep
                             ? 'Cancel'
-                            : <i class="fas fa-plus"> Step</i>
+                            : <i className="fas fa-plus"> Step</i>
                             }
                         </RaisedButton>
                     </div>

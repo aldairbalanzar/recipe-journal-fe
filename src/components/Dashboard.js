@@ -8,28 +8,46 @@ import { connect } from 'react-redux';
 const Dashboard = (props) => {
 
     const [isCreatingRecipe, setIsCreatingRecipe] = useState(false);
+    const [search, setSearch] = useState('')
+    const [filtered, setFiltered] = useState()
 
     const toggleCreateRecipeForm = () => {
         setIsCreatingRecipe(!isCreatingRecipe)
     };
 
+    const handleSearchChanges = e => {
+        e.preventDefault()
+        setSearch(e.target.value)
+        setFiltered(props.recipesData.recipes.filter(recipe => {
+            return recipe.recipeName.toLowerCase().includes(search.toLowerCase())
+        }))
+    };
+
     useEffect(() => {
         props.getRecipes(props.userData.id)
-    }, [props.userData]);
-
+    }, []);
+    
     return (
         <div className='dashboard'>
             <div className='user-data-container'>
                 <h3 className='user-id'>id: {props.userData.id}</h3>
                 <h3 className='username'>User: {props.userData.username}</h3>
             </div>
-            <div className='recipe-list'>
-                {props.recipesData.recipes.map(recipe => (
-                    <RecipeCard key={recipe.id} recipe={recipe} />
-                ))}
+            <div className='dashboard-actions-container'>
+                <div className='button-container'>
+                    <RaisedButton className='button-add-recipe' onClick={toggleCreateRecipeForm}>
+                        {isCreatingRecipe ? 'Cancel' : 'Create Recipe'}
+                    </RaisedButton>
+                </div>
+                <TextField className='search-field' name='search' onChange={handleSearchChanges} placeholder='Search' />
+                {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
             </div>
-            {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
-            <RaisedButton className='button-add-recipe' onClick={toggleCreateRecipeForm}>Create Recipe</RaisedButton>
+            <div className='recipe-list'>
+                {search.length > 0
+                    ? filtered.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} />)
+                    : props.recipesData.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} />)
+                }
+            </div>
         </div>
     )
 };

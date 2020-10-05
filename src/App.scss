@@ -52,7 +52,7 @@ html {
 }
 
 .app {
-    margin: 0 auto;
+    margin: 0 auto 4%;
     width: 88%;
     display: flex;
     flex-wrap: wrap;
@@ -153,14 +153,34 @@ html {
         width: 100%;
 
         .user-data-container {
-            padding: 2% 0;
+            padding: 2% 0 0;
+        }
+
+        .dashboard-actions-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .search-field {
+                width: 70%;
+                margin: 0 0 0 22%;
+            }
+
+            .button-container {
+                width: 16%;
+                margin: 1% 0 0;
+
+                .button-add-recipe {
+                    width: 100%;
+                }
+            }
         }
         
         .recipe-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 1% 0 5%;
+            margin: 1% 0 0;
 
             .recipe-card {
                 border: 2px solid tomato;
