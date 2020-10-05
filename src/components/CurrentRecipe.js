@@ -27,8 +27,6 @@ const CurrentRecipe = (props) => {
         
     }, [props.recipeData])
 
-    console.log('recipeData: ', props.recipeData)
-
     return (
         <div className='current-recipe-container'>
             <h3 className='recipe-name'>{props.recipeData.recipe.recipeName}</h3>
@@ -44,7 +42,7 @@ const CurrentRecipe = (props) => {
                 <div className='recipe-ingredients-container'>
                     <p>Ingredients:</p>
                     {props.recipeData.ingredients.map(ingredient => (
-                        <div key={ingredient.id}>
+                        <div key={ingredient.ingredientId}>
                             <p>{ingredient.ingredientName} - {ingredient.amount}</p>
                         </div>
                     ))}
@@ -52,7 +50,7 @@ const CurrentRecipe = (props) => {
                         <RaisedButton  onClick={() => {toggleDataForm('ingredient')}}>
                             {isAddingIngredient
                             ? 'Cancel'
-                            : <i class="fas fa-plus"> Ingredient</i>
+                            : <i className="fas fa-plus"> Ingredient</i>
                             }
                         </RaisedButton>
                     </div>

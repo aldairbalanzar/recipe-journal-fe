@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, RaisedButton } from 'material-ui';
 import { postRegisterCredentials } from '../actions/authActions';
+import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 const Register = (props) => {
@@ -9,7 +10,9 @@ const Register = (props) => {
     username: '',
     password: ''
   })
+
   const [message, setMessage] = useState(null)
+  const history = useHistory()
   
   const handleChanges = e => {
     e.preventDefault()
@@ -28,7 +31,7 @@ const Register = (props) => {
     }
 
     console.log('credentials: ', credentials)
-    props.postRegisterCredentials(credentials)
+    props.postRegisterCredentials(credentials, history)
     setCredentials({
       username: '',
       password: ''

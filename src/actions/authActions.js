@@ -7,7 +7,7 @@
  export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
  export const LOGIN_ERROR = 'LOGIN_ERROR';
 
- export const postRegisterCredentials = credentials => dispatch => {
+ export const postRegisterCredentials = (credentials, history) => dispatch => {
     dispatch({ type: REGISTER_INIT })
     axiosWithAuth()
     .post(`/api/auth/register`, credentials)
@@ -17,6 +17,7 @@
             type: REGISTER_SUCCESS,
             payload: res.data
         })
+        history.push('/')
     })
     .catch(err => {
         console.log('err: ', err)
@@ -27,7 +28,7 @@
     })
  }
  
- export const postLoginCredentials = credentials => dispatch => {
+ export const postLoginCredentials = (credentials, history) => dispatch => {
     dispatch({ type: LOGIN_INIT })
     axiosWithAuth()
     .post(`/api/auth/login`, credentials)
@@ -40,6 +41,7 @@
         window.localStorage.setItem('token', JSON.stringify(res.data.token));
         window.localStorage.setItem('id', JSON.stringify(res.data.id))
         window.localStorage.setItem('username', JSON.stringify(res.data.username))
+        history.push('/dashboard')
     })
     .catch(err => {
         console.log('err: ', err)

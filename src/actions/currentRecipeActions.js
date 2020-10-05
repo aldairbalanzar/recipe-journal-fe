@@ -15,7 +15,7 @@ export const getRecipeData = (userId, recipeId) => dispatch => {
     axiosWithAuth()
     .get(`/api/recipes/${userId}/${recipeId}`)
     .then(res => {
-        console.log('res: ', res.data)
+        console.log('getRecipeData: ', res.data)
         dispatch({
             type: CURRENT_RECIPE_GET_SUCCESS,
             payload: res.data

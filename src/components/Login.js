@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, RaisedButton } from 'material-ui';
-import { postLoginCredentials } from '../actions/authActions'
+import { postLoginCredentials } from '../actions/authActions';
+import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 const Login = (props) => {
@@ -10,6 +11,7 @@ const Login = (props) => {
     password: ''
   })
   const [message, setMessage] = useState(null)
+  const history = useHistory()
   
   const handleChanges = e => {
     e.preventDefault()
@@ -28,7 +30,7 @@ const Login = (props) => {
     }
 
     console.log('credentials: ', credentials)
-    props.postLoginCredentials(credentials)
+    props.postLoginCredentials(credentials, history)
     setCredentials({
       username: '',
       password: ''
