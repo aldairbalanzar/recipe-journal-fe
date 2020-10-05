@@ -40,7 +40,7 @@ const Register = (props) => {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit}>
+      <form className='register-form' onSubmit={handleSubmit}>
         <h3>Register</h3>
 
         <label className='field-container' htmlFor="username">
