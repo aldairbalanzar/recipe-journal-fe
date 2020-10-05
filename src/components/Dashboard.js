@@ -8,17 +8,6 @@ import { connect } from 'react-redux';
 const Dashboard = (props) => {
 
     const [isCreatingRecipe, setIsCreatingRecipe] = useState(false);
-    const [search, setSearch] = useState('')
-
-    const handleSearchChanges = e => {
-        e.preventDefault()
-        setSearch(e.target.value)
-    };
-
-    const handleSearchSubmit = e => {
-        e.preventDefault()
-        console.log(search)
-    }
 
     const toggleCreateRecipeForm = () => {
         setIsCreatingRecipe(!isCreatingRecipe)
@@ -28,25 +17,8 @@ const Dashboard = (props) => {
         props.getRecipes(props.userData.id)
     }, [props.userData]);
 
-    useEffect(() => {
-        console.log('hey')
-    }, [search])
-
     return (
         <div className='dashboard'>
-            <div className='search-container'>
-                <TextField 
-                className='input-field'
-                type='text'
-                onChange={handleSearchChanges}
-                id='stepNum'
-                name='stepNum'
-                value={search}
-                placeholder='Search'
-                floatingLabelText='Search'
-                />
-                <RaisedButton onClick={handleSearchSubmit}>Search</RaisedButton>
-            </div>
             <div className='user-data-container'>
                 <h3 className='user-id'>id: {props.userData.id}</h3>
                 <h3 className='username'>User: {props.userData.username}</h3>
