@@ -15,6 +15,7 @@ import {
 const init = {
     recipes: [],
     message: '',
+    status: null,
     isGetting: false,
     isPosting: false,
     isPutting: false,
@@ -38,7 +39,7 @@ const recipesReducer = (state=init, action={}) => {
         case RECIPES_GET_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isGetting: false
             }
         case RECIPES_POST_INIT:
@@ -56,7 +57,7 @@ const recipesReducer = (state=init, action={}) => {
         case RECIPES_POST_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isPosting: false
             }
         case RECIPES_POST_INIT:
@@ -74,7 +75,7 @@ const recipesReducer = (state=init, action={}) => {
         case RECIPES_PUT_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isPutting: false
             }
         case RECIPES_DELETE_INIT:
@@ -92,7 +93,7 @@ const recipesReducer = (state=init, action={}) => {
         case RECIPES_DELETE_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isDeleting: false,
             }
         default:

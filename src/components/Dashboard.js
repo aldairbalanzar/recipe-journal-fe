@@ -29,10 +29,6 @@ const Dashboard = (props) => {
     
     return (
         <div className='dashboard'>
-            <div className='user-data-container'>
-                <h3 className='user-id'>id: {props.userData.id}</h3>
-                <h3 className='username'>User: {props.userData.username}</h3>
-            </div>
             <div className='dashboard-actions-container'>
                 <div className='button-container'>
                     <RaisedButton className='button-add-recipe' onClick={toggleCreateRecipeForm}>

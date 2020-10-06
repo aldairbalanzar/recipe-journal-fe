@@ -25,10 +25,10 @@ export const getRecipes = userId => dispatch => {
         })
     })
     .catch(err => {
-        console.log('err: ', err)
+        console.log('getRecipes err: ', err.response)
         dispatch({
             type: RECIPES_GET_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
@@ -45,10 +45,10 @@ export const postRecipe = (newRecipe, userId) => dispatch => {
         })
     })
     .catch(err => {
-        console.log('err: ', err)
+        console.log('postRecipe err: ', err.response)
         dispatch({
             type: RECIPES_POST_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
@@ -65,10 +65,10 @@ export const updateRecipe = (recipeUpdate, userId) => dispatch => {
         })
     })
     .catch(err => {
-        console.log(err)
+        console.log('updateRecipe err: ', err.response)
         dispatch({
             type: RECIPES_DELETE_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
@@ -85,7 +85,7 @@ export const deleteRecipe = (recipeId, userId) => dispatch => {
         })
     })
     .catch(err => {
-        console.log(err)
+        console.log('deleteRecipe: ', err.response)
     })
 };
 

@@ -5,8 +5,8 @@ const init = {
     username: '' || JSON.parse(localStorage.getItem('username')),
     imageURL: '',
     message: '',
-    err: '',
-    isPostingRecipe: false
+    status: null,
+    isPostingCredentials: false
 }
 
 const authReducer = (state=init, action={}) => {
@@ -14,25 +14,24 @@ const authReducer = (state=init, action={}) => {
         case REGISTER_INIT:
             return {
                 ...state,
-                isPostingRecipe: true
+                isPostingCredentials: true
             }
         case REGISTER_SUCCESS:
             return {
                 ...state,
                 message: action.payload.message,
-                isPostingRecipe: false
+                isPostingCredentials: false
             }
         case REGISTER_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
-                err: action.payload.err,
-                isPostingRecipe: false
+                message: action.payload.data.errorMessage,
+                isPostingCredentials: false
             }
         case LOGIN_INIT:
             return {
                 ...state,
-                isPostingRecipe: true
+                isPostingCredentials: true
             }
         case LOGIN_SUCCESS:
             return {
@@ -41,14 +40,14 @@ const authReducer = (state=init, action={}) => {
                 username: action.payload.username,
                 imageURL: action.payload.imageURL,
                 message: action.payload.message,
-                isPostingRecipe: false,
+                isPostingCredentials: false,
             }
         case LOGIN_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
-                err: action.payload.err,
-                isPostingRecipe: false
+                message: action.payload.errorMessage,
+                message: action.payload.data.errorMessage,
+                isPostingCredentials: false
             }
         default:
             return state

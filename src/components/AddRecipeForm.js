@@ -47,7 +47,7 @@ const AddRecipeForm = (props) => {
 
     return (
         <div className='form-container'>
-            <form className='add-recipe' onSubmit={handleSubmit}>
+            <form className='add-recipe-form' onSubmit={handleSubmit}>
                 <h3 className='form-title'>New Recipe</h3>
 
                 <label className='field-container' htmlFor="recipeName">
@@ -115,8 +115,9 @@ const AddRecipeForm = (props) => {
                     floatingLabelText='Yields'
                     />
                 </label>
-                
-                <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
+                <div className='button-container'>
+                    <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
+                </div>
             </form>
 
             <p>{message ? message : null}</p>

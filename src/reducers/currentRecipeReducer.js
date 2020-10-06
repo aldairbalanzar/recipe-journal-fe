@@ -15,6 +15,7 @@ const init = {
     ingredients: [],
     steps: [],
     message: '',
+    status: null,
     isGetting: false,
     isPosting: false,
     isUpdating: false,
@@ -39,7 +40,7 @@ const currentRecipeReducer = (state=init, action={}) => {
         case CURRENT_RECIPE_GET_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isGetting: false
             }
         case INGREDIENT_POST_INIT:
@@ -57,7 +58,7 @@ const currentRecipeReducer = (state=init, action={}) => {
         case INGREDIENT_POST_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isPosting: false
             }
         case STEP_POST_INIT:
@@ -74,7 +75,7 @@ const currentRecipeReducer = (state=init, action={}) => {
         case STEP_POST_ERROR:
             return {
                 ...state,
-                message: action.payload.message,
+                message: action.payload.data.errorMessage,
                 isPosting: false
             }
         default:

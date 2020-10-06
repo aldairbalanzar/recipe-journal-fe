@@ -29,7 +29,12 @@ const CurrentRecipe = (props) => {
 
     return (
         <div className='current-recipe-container'>
-            <h3 className='recipe-name'>{props.recipeData.recipe.recipeName}</h3>
+            <div className='header-container'>
+                <h3 className='recipe-name'>{props.recipeData.recipe.recipeName}</h3>
+                <div className='actions-container'>
+                    <i className='exit-icon fas fa-times'></i>
+                </div>
+            </div>
 
             <div className='details-container'>
                 <p className='description'>{props.recipeData.recipe.description}</p>
@@ -47,7 +52,7 @@ const CurrentRecipe = (props) => {
                         </div>
                     ))}
                     <div className='button-container'>
-                        <RaisedButton  onClick={() => {toggleDataForm('ingredient')}}>
+                        <RaisedButton className='ingredient-button'  onClick={() => {toggleDataForm('ingredient')}}>
                             {isAddingIngredient
                             ? 'Cancel'
                             : <i className="fas fa-plus"> Ingredient</i>
@@ -65,7 +70,7 @@ const CurrentRecipe = (props) => {
                         </div>
                     ))}
                     <div className='button-container'>
-                        <RaisedButton  onClick={() => {toggleDataForm('step')}}>
+                        <RaisedButton className='step-button'  onClick={() => {toggleDataForm('step')}}>
                             {isAddingStep
                             ? 'Cancel'
                             : <i className="fas fa-plus"> Step</i>

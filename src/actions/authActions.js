@@ -20,10 +20,10 @@
         history.push('/')
     })
     .catch(err => {
-        console.log('err: ', err)
+        console.log('postRegisterCredentials err: ', err.response)
         dispatch({
             type: REGISTER_ERROR,
-            payload: err
+            payload: err.response
         })
     })
  }
@@ -44,10 +44,10 @@
         history.push('/dashboard')
     })
     .catch(err => {
-        console.log('err: ', err)
+        console.log('postLoginCredentials err: ', err.response)
         dispatch({
             type: LOGIN_ERROR,
-            payload: err
+            payload: err.response
         })
     })
  }
