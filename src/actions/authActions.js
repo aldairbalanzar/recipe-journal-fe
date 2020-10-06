@@ -6,6 +6,7 @@
  export const LOGIN_INIT = 'LOGIN_INIT';
  export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
  export const LOGIN_ERROR = 'LOGIN_ERROR';
+ export const LOGOUT_INIT = 'LOGOUT_INIT';
 
  export const postRegisterCredentials = (credentials, history) => dispatch => {
     dispatch({ type: REGISTER_INIT })
@@ -26,7 +27,7 @@
             payload: err.response
         })
     })
- }
+ };
  
  export const postLoginCredentials = (credentials, history) => dispatch => {
     dispatch({ type: LOGIN_INIT })
@@ -50,4 +51,13 @@
             payload: err.response
         })
     })
+ };
+
+ export const handleLogout = history => dispatch => {
+    dispatch({ type: LOGOUT_INIT })
+    console.log('handleLogout: loggin out!')
+    window.localStorage.setItem('token', JSON.stringify(''));
+    window.localStorage.setItem('id', JSON.stringify(''))
+    window.localStorage.setItem('username', JSON.stringify(''))
+    history.push('/')
  }
