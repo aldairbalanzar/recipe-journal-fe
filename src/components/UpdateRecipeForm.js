@@ -24,8 +24,8 @@ const UpdateRecipeForm = (props) => {
 
     return (
         <div className='form-container'>
-            <form className='update-recipe' onSubmit={handleSubmit}>
-                <h3 className='form-title'>New Recipe</h3>
+            <form className='update-recipe-form' onSubmit={handleSubmit}>
+                <h3 className='form-title'>Updating recipe...</h3>
 
                 <label className='field-container' htmlFor="recipeName">
                     <TextField
@@ -92,8 +92,10 @@ const UpdateRecipeForm = (props) => {
                     floatingLabelText='Yields'
                     />
                 </label>
-                
-                <RaisedButton className='button-submit' type='submit'>Update</RaisedButton>
+                <div className="actions-container">
+                    <RaisedButton className='button-submit' type='submit'>Update</RaisedButton>
+                    <RaisedButton className='button-cancel' onClick={() => {props.setIsUpdating(false)}}>Cancel</RaisedButton>
+                </div>
             </form>
         </div>
     )
