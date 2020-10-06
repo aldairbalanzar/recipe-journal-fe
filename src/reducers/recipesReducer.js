@@ -1,3 +1,4 @@
+import { LOGOUT_INIT } from '../actions/authActions';
 import { 
     RECIPES_GET_INIT,
     RECIPES_GET_SUCCESS,
@@ -95,6 +96,18 @@ const recipesReducer = (state=init, action={}) => {
                 ...state,
                 message: action.payload.data.errorMessage,
                 isDeleting: false,
+            }
+        case LOGOUT_INIT:
+            return {
+                ...state,
+                recipes: [],
+                message: 'successfully logged out!',
+                status: 500,
+                isGetting: false,
+                isPosting: false,
+                isPutting: false,
+                isDeleting: false,
+
             }
         default:
             return state

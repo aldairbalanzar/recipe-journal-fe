@@ -1,4 +1,4 @@
-import { REGISTER_INIT, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_INIT, LOGIN_SUCCESS, LOGIN_ERROR } from "../actions/authActions";
+import { REGISTER_INIT, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_INIT, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_INIT } from "../actions/authActions";
 
 const init = {
     id: '' || JSON.parse(localStorage.getItem('id')),
@@ -47,6 +47,15 @@ const authReducer = (state=init, action={}) => {
                 ...state,
                 message: action.payload.errorMessage,
                 message: action.payload.data.errorMessage,
+                isPostingCredentials: false
+            }
+        case LOGOUT_INIT:
+            return {
+                id: '',
+                username: '',
+                imageURL: '',
+                message: 'Successfully logged out!',
+                status: 500,
                 isPostingCredentials: false
             }
         default:

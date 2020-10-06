@@ -1,4 +1,5 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { LOGOUT_INIT } from './authActions';
 
 export const RECIPES_GET_INIT = 'RECIPES_GET_INIT';
 export const RECIPES_GET_SUCCESS = 'RECIPES_GET_SUCCESS';
@@ -88,4 +89,8 @@ export const deleteRecipe = (recipeId, userId) => dispatch => {
         console.log('deleteRecipe: ', err.response)
     })
 };
+
+export const handleLogout = () => dispatch => {
+    dispatch({ type: LOGOUT_INIT })
+}
 

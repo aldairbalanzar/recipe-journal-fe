@@ -70,7 +70,7 @@ html {
         position: fixed;
 
         .links-container {
-            width: 26%;
+            width: 24%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -78,8 +78,8 @@ html {
             .link {
                 text-decoration: none;
                 color: black;
-                transition: .25s;
                 font-size: 1.3rem;
+                transition: .25s;
                 &:hover {
                     cursor: pointer;
                     color: lightseagreen;
@@ -88,13 +88,29 @@ html {
             }
         }
         .title-container {
-            width: 56%;
+            width:48%;
 
             .app-title {
                 width: 100%;
                 font-size: 2rem;
-                text-align: left;
+                text-align: center;
                 padding: 1% 0 0;
+            }
+        }
+
+        .user-data-container {
+            width: 22%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 1% 0 0;
+            font-size: 1.3rem;
+            
+            .username {
+                width: 44%;
+                i {
+                    padding: 0 5% 0 0;
+                }
             }
         }
     }
