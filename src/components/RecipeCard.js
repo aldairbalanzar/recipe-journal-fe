@@ -33,7 +33,7 @@ const RecipeCard = (props) => {
 
 
     return (
-        <div key={props.recipe.id} className={recipeToUpdate === props.recipe.id && isUpdating === true ? 'updating-card' : 'recipe-card'}>
+        <div key={props.recipe.id} className={recipeToUpdate === props.recipe.id === true ? 'updating-card' : 'recipe-card'}>
             {isUpdating
             ? <UpdateRecipeForm isUpdating={isUpdating} setIsUpdating={setIsUpdating} recipe={props.recipe}/>
             : <>
