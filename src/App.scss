@@ -59,12 +59,14 @@ html {
     justify-content: center;
 
     .nav-container {
+        z-index: 2;
         width: 100%;
         background-color: rgb(213, 217, 223);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 0 0 1%;
+        box-shadow: 2px 3px 4px rgba(0, 0, 2, 0.225);
         position: fixed;
 
         .links-container {
@@ -222,7 +224,6 @@ html {
                                     margin: 0 0 3%;
                                 }
                             }
-        
                         }
     
                     .card-actions-container {
@@ -314,7 +315,7 @@ html {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 1%;
+        padding: 1% 20%;
         margin: 2% 0 1%;
         border-radius: 7px;
         background-color: rgb(237, 241, 247);
@@ -327,16 +328,16 @@ html {
         }
 
         .field-container {
-            border: 2px solid lightblue;
+            // border: 2px solid lightblue;
             width: 40%;
         }
 
         .button-container {
-            border: 2px solid pink;
             width: 40%;
             display: flex;
+            flex-direction: column-reverse;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
 
             .button-submit {
                 width: 60%;
@@ -356,12 +357,39 @@ html {
         padding: 3% 2%;
         margin: 3% 0 0;
 
-        .recipe-name {
+        .header-container {
             width: 100%;
-            text-align: center;
-            font-size: 2rem;
-            margin: 0 0 3%;
+            display: flex;
+            flex-wrap: flex;
+            justify-content: space-between;
+            .recipe-name {
+                width: 80%;
+                text-align: center;
+                font-size: 2rem;
+                margin: 0 0 3%;
+            }
+
+            .actions-container {
+                width: 10%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                font-size: 1.2rem;
+                transition: .25s;
+
+                .exit-icon {
+                    width: 30%;
+                    color: dimgrey;
+                    text-align: end;
+                    &:hover {
+                        cursor: pointer;
+                        color: lightseagreen;
+                        transition: .25s;
+                    }
+                }
+            }
         }
+
 
         .details-container {
             width: 40%;

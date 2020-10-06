@@ -22,10 +22,10 @@ export const getRecipeData = (userId, recipeId) => dispatch => {
         })
     })
     .catch(err => {
-        console.log('err: ', err)
+        console.log('getRecipeData err: ', err.response)
         dispatch({
             type: CURRENT_RECIPE_GET_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
@@ -42,10 +42,10 @@ export const postIngredient = (ingredientData, userId, recipeId) => dispatch => 
         })
     })
     .catch(err => {
-        console.log('error: ', err)
+        console.log('postIngredient err: ', err.response)
         dispatch({
             type: INGREDIENT_POST_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
@@ -62,10 +62,10 @@ export const postStep = (stepData, userId, recipeId) => dispatch => {
         })
     })
     .catch(err => {
-        console.log('error: ', err)
+        console.log('postStep err: ', err.response)
         dispatch({
             type: STEP_POST_ERROR,
-            payload: err
+            payload: err.response
         })
     })
 };
