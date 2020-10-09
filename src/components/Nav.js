@@ -18,7 +18,7 @@ const Nav = (props) => {
         <nav className='nav-container'>
             <ul className='links-container'>
                 <Link className='link' to='/register'><li>Register</li></Link>
-                <Link className='link' to='/dashboard'><li>Recipes</li></Link>
+                <Link className='link' to='/dashboard'><li>Dashboard</li></Link>
                 {JSON.parse(localStorage.getItem('username'))
                     ? <Link className='link' onClick={() => {props.handleLogout(history)}}>
                         <li>Logout</li>
