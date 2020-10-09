@@ -5,6 +5,7 @@ import AddStepForm from '../components/AddStepForm'
 import { updateRecipe, deleteRecipe } from '../actions/recipesActions';
 import { getRecipeData } from '../actions/currentRecipeActions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import foodPic from '../assets/food_pic.jpg'
 
 const CurrentRecipe = (props) => {
@@ -32,7 +33,7 @@ const CurrentRecipe = (props) => {
             <div className='header-container'>
                 <h3 className='recipe-name'>{props.recipeData.recipe.recipeName}</h3>
                 <div className='actions-container'>
-                    <i className='exit-icon fas fa-times'></i>
+                    <Link to='/dashboard'><i className='exit-icon fas fa-times'></i></Link>
                 </div>
             </div>
 

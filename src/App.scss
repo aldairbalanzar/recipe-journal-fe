@@ -75,6 +75,7 @@ html {
             flex-wrap: wrap;
             justify-content: space-evenly;
             padding: 1% 0 0;
+            list-style-type: none;
             .link {
                 text-decoration: none;
                 color: black;
@@ -99,15 +100,37 @@ html {
         }
 
         .user-data-container {
-            width: 22%;
+            width: 26%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: space-around;
             padding: 1% 0 0;
             font-size: 1.3rem;
-            
+            list-style-type: none;
+
+            .links-container {
+                width: 60%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                padding: 1% 0 0;
+                list-style-type: none;
+                .link {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 1.3rem;
+                    transition: .25s;
+                    &:hover {
+                        cursor: pointer;
+                        color: lightseagreen;
+                        transition: .25s;
+                    }
+                }
+                
+            }
             .username {
-                width: 44%;
+                width: 30%;
+                text-align: center;
                 i {
                     padding: 0 5% 0 0;
                 }
