@@ -35,8 +35,18 @@ const Dashboard = (props) => {
                         {isCreatingRecipe ? 'Cancel' : 'Create Recipe'}
                     </RaisedButton>
                 </div>
-                <TextField className='search-field' name='search' onChange={handleSearchChanges} placeholder='Search' />
+
                 {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
+                
+                <div className="search-field-container">
+                    <TextField
+                    className='search-field' 
+                    name='search'
+                    onChange={handleSearchChanges}
+                    placeholder='Search'
+                    fullWidth='true'
+                    />
+                </div>
             </div>
             <div className='recipe-list'>
                 {search.length > 0
