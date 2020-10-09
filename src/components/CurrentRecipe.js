@@ -44,6 +44,7 @@ const CurrentRecipe = (props) => {
                     <p className='recipe-info'>Yields: {props.recipeData.recipe.yields}</p>
                 </div>
 
+                {/* form to add an ingredient to recipe */}
                 <div className='recipe-ingredients-container'>
                     <p>Ingredients:</p>
                     {props.recipeData.ingredients.map(ingredient => (
@@ -61,7 +62,8 @@ const CurrentRecipe = (props) => {
                     </div>
                     {isAddingIngredient && <AddIngredientForm />}
                 </div>
-
+                
+                {/* form to add a step to recipe */}
                 <div className='recipe-steps-container'>
                     <p>Steps:</p>
                     {props.recipeData.steps.map(step => (
@@ -79,6 +81,7 @@ const CurrentRecipe = (props) => {
                     </div>
                     {isAddingStep && <AddStepForm />}
                 </div>
+
             </div>
 
             <div className='image-container'>

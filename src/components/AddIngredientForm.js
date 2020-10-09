@@ -31,17 +31,16 @@ const AddIngredientForm = (props) => {
     return (
         <div className='form-container'>
             <p>Ingredinet Form</p>
-            <form onSubmit={handleSubmit}>
+            <form className='add-ingredient-form' onSubmit={handleSubmit}>
                 <label className='field-container'>
                     <TextField
                     className='input-field'
                     type='text'
                     onChange={handleChanges}
-                    id='ingredientName'
                     name='ingredientName'
                     value={newIngredient.ingredientName}
                     placeholder='Ingredient Name'
-                    floatingLabelFixed='Ingredient Name'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -50,11 +49,10 @@ const AddIngredientForm = (props) => {
                     className='input-field'
                     type='text'
                     onChange={handleChanges}
-                    id='amount'
                     name='amount'
                     value={newIngredient.amount}
                     placeholder='Amount'
-                    floatingLabelFixed='Amount'
+                    fullWidth='true'
                     />
                 </label>
 

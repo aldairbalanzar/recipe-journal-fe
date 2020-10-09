@@ -330,6 +330,7 @@ html {
                 margin: 3% 0 1%;
                 border-radius: 7px;
             }
+
             .recipe-details-container {
                 width: 100%;
                 display: flex;
@@ -461,7 +462,7 @@ html {
                 display: flex;
                 justify-content: center;
                 font-weight: bolder;
-                padding: 10% 0;
+                padding: 8% 0;
 
                 div {
                     width: auto;
@@ -469,13 +470,22 @@ html {
                     padding: 0 2% 1%;
                 }
             }
-                .recipe-ingredients-container {
+
+            .recipe-ingredients-container {
                 width: 48%;
+
+                .add-ingredient-form {
+                    width: 100%;
+                }
                 
             }
 
             .recipe-steps-container {
                 width: 48%;
+
+                .add-step-form {
+                    width: 100%;
+                }
             }
 
         }
