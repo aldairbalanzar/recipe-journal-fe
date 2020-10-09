@@ -31,17 +31,16 @@ const AddStepForm = (props) => {
     return (
         <div className='form-container'>
             <p>Step Form</p>
-            <form onSubmit={handleSubmit}>
+            <form className='add-step-form' onSubmit={handleSubmit}>
                 <label className='field-container'>
                     <TextField
                     className='input-field'
                     type='text'
                     onChange={handleChanges}
-                    id='stepNum'
                     name='stepNum'
                     value={newStep.stepNum}
                     placeholder='Step Number'
-                    floatingLabelText='Step Number'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -50,11 +49,10 @@ const AddStepForm = (props) => {
                     className='input-field'
                     type='text'
                     onChange={handleChanges}
-                    id='stepInstruction'
                     name='stepInstruction'
                     value={newStep.stepInstruction}
                     placeholder='Instruction'
-                    floatingLabelText='Instruction'
+                    fullWidth='true'
                     />
                 </label>
 
