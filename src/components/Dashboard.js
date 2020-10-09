@@ -35,6 +35,9 @@ const Dashboard = (props) => {
                         {isCreatingRecipe ? 'Cancel' : 'Create Recipe'}
                     </RaisedButton>
                 </div>
+
+                {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
+                
                 <div className="search-field-container">
                     <TextField
                     className='search-field' 
@@ -44,7 +47,6 @@ const Dashboard = (props) => {
                     fullWidth='true'
                     />
                 </div>
-                {isCreatingRecipe && <AddRecipeForm setIsCreatingRecipe={setIsCreatingRecipe}/>}
             </div>
             <div className='recipe-list'>
                 {search.length > 0
