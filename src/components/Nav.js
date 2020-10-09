@@ -18,20 +18,22 @@ const Nav = (props) => {
         <nav className='nav-container'>
             <ul className='links-container'>
                 <Link className='link' to='/dashboard'><li>Dashboard</li></Link>
-                <Link className='link' to='/register'><li>Register</li></Link>
-                {JSON.parse(localStorage.getItem('username'))
-                    ? <Link className='link' onClick={() => {props.handleLogout(history)}}>
-                        <li>Logout</li>
-                    </Link>
-                    : <Link className='link' to='/'><li>Login</li></Link>
-                }
             </ul>
             <div className='title-container'>
                 <h1 className='app-title'>Recipe Journal</h1>
             </div>
             <div className="user-data-container">
+                <div className="links-container">
+                    <Link className='link' to='/register'><li>Register</li></Link>
+                    {JSON.parse(localStorage.getItem('username'))
+                        ? <Link className='link' onClick={() => {props.handleLogout(history)}}>
+                            <li>Logout</li>
+                        </Link>
+                        : <Link className='link' to='/'><li>Login</li></Link>
+                    }
+                </div>
                 <h3 className="username">
-                    {isLoggedIn ? <i className="fas fa-user"></i> : null}{props.userData.username}
+                    {isLoggedIn ? <i className="fas fa-user"></i> : null} {props.userData.username}
                 </h3>
             </div>
         </nav>
