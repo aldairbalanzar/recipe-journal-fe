@@ -11,17 +11,23 @@ const AddRecipeForm = (props) => {
         prepTime: '',
         cookTime: '',
         yields: '',
-        recipeImageURL: ''
     });
     const [message, setMessage] = useState('')
 
     const handleChanges = e => {
         e.preventDefault()
         setNewRecipe({
-          ...newRecipe,
-          [e.target.name]: e.target.value
+            ...newRecipe,
+            [e.target.name]: e.target.value
         })
-      };
+    };
+
+    const handleRecipeImage = e => {
+        setNewRecipe({
+            ...newRecipe,
+            recipeImage: e.target.value
+        })
+    }
     
       const handleSubmit = e => {
         e.preventDefault()
@@ -38,7 +44,7 @@ const AddRecipeForm = (props) => {
           description: '',
           prepTime: '',
           cookTime: '',
-          recipeImageURL: ''
+          recipeImage: ''
         })
         props.setIsCreatingRecipe(false)
       };
@@ -113,6 +119,17 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.yields}
                     placeholder='Yields'
                     floatingLabelText='Yields'
+                    />
+                </label>
+
+                <label className='field-container' htmlFor="recipeImage">
+                    <input
+                    className='input-field'
+                    type="file"
+                    onChange={handleRecipeImage}
+                    id='recipeImage'
+                    name='recipeImage'
+                    value={newRecipe.recipeImage}
                     />
                 </label>
                 <div className='button-container'>

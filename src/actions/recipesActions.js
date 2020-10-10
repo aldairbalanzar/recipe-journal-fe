@@ -35,6 +35,7 @@ export const getRecipes = userId => dispatch => {
 };
 
 export const postRecipe = (newRecipe, userId) => dispatch => {
+    console.log('newRecipe: ', newRecipe)
     dispatch({ type: RECIPES_POST_INIT})
     axiosWithAuth()
     .post(`/api/recipes/${userId}`, newRecipe)

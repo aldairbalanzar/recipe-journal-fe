@@ -13,7 +13,6 @@ const Nav = (props) => {
         setIsLoggedIn(JSON.parse(localStorage.getItem('username')))
     }, [props.userData.username])
 
-    console.log('user: ', isLoggedIn)
     return (
         <nav className='nav-container'>
             <ul className='links-container'>
