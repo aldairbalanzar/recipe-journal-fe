@@ -7,6 +7,7 @@ const axiosWithAuth = () => {
   return axios.create({
     baseURL: 'https://recipe-journal-be.herokuapp.com/',
     headers: {
+        'Content-Type': 'application/json',
         authorization: token,
       },
   });

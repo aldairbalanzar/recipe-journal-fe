@@ -86,7 +86,10 @@ const CurrentRecipe = (props) => {
             </div>
 
             <div className='image-container'>
-                <img className='recipe-image' src={foodPic} alt=""/>
+                <img className='recipe-image' 
+                src={props.recipeData.recipe.imageURL || foodPic}
+                alt={props.recipeData.recipe.recipeName || 'image of bunch of food'}
+                />
             </div>
         </div>
     )

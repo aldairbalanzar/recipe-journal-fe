@@ -51,7 +51,7 @@ const RecipeCard = (props) => {
 
                 <Link onClick={() => {handleCardData(props.userData.id, props.recipe.id)}}  to='/selected'>
                     <div>
-                        <img className='recipe-image' src={foodPic} alt="food"/>
+                        <img className='recipe-image' src={props.recipe.imageURL || foodPic} alt="food"/>
                     </div>
                 </Link>
 

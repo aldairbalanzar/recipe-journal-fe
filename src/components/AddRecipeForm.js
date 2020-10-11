@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TextField, RaisedButton } from 'material-ui';
-import { postRecipe } from '../actions/recipesActions';
+import { postRecipe, putRecipeImage } from '../actions/recipesActions';
 import { connect } from 'react-redux';
 
 const AddRecipeForm = (props) => {
@@ -12,6 +12,8 @@ const AddRecipeForm = (props) => {
         cookTime: '',
         yields: '',
     });
+    const [imageFile, setImageFile] = useState('')
+    const [imageFileName, setImageFileName] = useState('choose file')
     const [message, setMessage] = useState('')
 
     const handleChanges = e => {
@@ -22,39 +24,45 @@ const AddRecipeForm = (props) => {
         })
     };
 
-    const handleRecipeImage = e => {
-        setNewRecipe({
-            ...newRecipe,
-            recipeImage: e.target.value
-        })
+    const handleImageChange = e => {
+        setImageFile(e.target.files[0])
+        setImageFileName(e.target.files[0].name)
     }
     
-      const handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault()
-    
+        let formData = new FormData();
+        formData.append("image", imageFile);
+
         if(!newRecipe.recipeName) {
             setMessage('Please provide required fields before submitting')
             return
         }
-    
-        console.log('newRecipe submit: ', newRecipe)
-        props.postRecipe(newRecipe, props.userData.id)
+
+        props.postRecipe(newRecipe, props.userData.id, formData)
         setNewRecipe({
           recipeName: '',
           description: '',
           prepTime: '',
           cookTime: '',
-          recipeImage: ''
         })
         props.setIsCreatingRecipe(false)
-      };
-
-    // console.log('newRecipe: ', newRecipe)
+        setImageFile('')
+    };
 
     return (
         <div className='form-container'>
             <form className='add-recipe-form' onSubmit={handleSubmit}>
                 <h3 className='form-title'>New Recipe</h3>
+
+                <label className='field-container-image' htmlFor="imageFile">
+                    <input
+                    className='input-field-image'
+                    type='file'
+                    onChange={handleImageChange}
+                    name='imageFile'
+                    />
+                </label>
 
                 <label className='field-container' htmlFor="recipeName">
                     <TextField
@@ -88,7 +96,6 @@ const AddRecipeForm = (props) => {
                     className='input-field'
                     type="text"
                     onChange={handleChanges}
-                    id='prepTime'
                     name='prepTime'
                     value={newRecipe.prepTime}
                     placeholder='Prep Time'
@@ -101,7 +108,6 @@ const AddRecipeForm = (props) => {
                     className='input-field'
                     type="text"
                     onChange={handleChanges}
-                    id='cookTime'
                     name='cookTime'
                     value={newRecipe.cookTime}
                     placeholder='Cook Time'
@@ -114,7 +120,6 @@ const AddRecipeForm = (props) => {
                     className='input-field'
                     type="text"
                     onChange={handleChanges}
-                    id='yields'
                     name='yields'
                     value={newRecipe.yields}
                     placeholder='Yields'
@@ -122,16 +127,6 @@ const AddRecipeForm = (props) => {
                     />
                 </label>
 
-                <label className='field-container' htmlFor="recipeImage">
-                    <input
-                    className='input-field'
-                    type="file"
-                    onChange={handleRecipeImage}
-                    id='recipeImage'
-                    name='recipeImage'
-                    value={newRecipe.recipeImage}
-                    />
-                </label>
                 <div className='button-container'>
                     <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
                 </div>
@@ -148,4 +143,4 @@ const mapStateToProps = state => {
     }
   };
   
-  export default connect(mapStateToProps, { postRecipe })(AddRecipeForm);
+  export default connect(mapStateToProps, { postRecipe, putRecipeImage })(AddRecipeForm);
