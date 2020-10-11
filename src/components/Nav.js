@@ -13,7 +13,6 @@ const Nav = (props) => {
         setIsLoggedIn(JSON.parse(localStorage.getItem('username')))
     }, [props.userData.username])
 
-    console.log('user: ', isLoggedIn)
     return (
         <nav className='nav-container'>
             <ul className='links-container'>
@@ -26,7 +25,7 @@ const Nav = (props) => {
                 <div className="links-container">
                     <Link className='link' to='/register'><li>Register</li></Link>
                     {JSON.parse(localStorage.getItem('username'))
-                        ? <Link className='link' onClick={() => {props.handleLogout(history)}}>
+                        ? <Link className='link' onClick={() => {props.handleLogout(history)}} to='/'>
                             <li>Logout</li>
                         </Link>
                         : <Link className='link' to='/'><li>Login</li></Link>

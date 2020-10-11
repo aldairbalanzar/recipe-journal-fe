@@ -58,7 +58,7 @@ const recipesReducer = (state=init, action={}) => {
         case RECIPES_POST_ERROR:
             return {
                 ...state,
-                message: action.payload.data.errorMessage,
+                message: action.payload,
                 isPosting: false
             }
         case RECIPES_POST_INIT:

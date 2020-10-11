@@ -34,21 +34,61 @@ export const getRecipes = userId => dispatch => {
     })
 };
 
-export const postRecipe = (newRecipe, userId) => dispatch => {
+export const postRecipe = (newRecipe, userId, formData) => dispatch => {
     dispatch({ type: RECIPES_POST_INIT})
     axiosWithAuth()
     .post(`/api/recipes/${userId}`, newRecipe)
-    .then(res => {
-        console.log('postRecipe: ', res.data)
+    .then((res) => {
+        console.log(newRecipe)
+        let recipes = res.data.recipes
+        let recipeId = recipes[recipes.length - 1].id
+        console.log('userId: ', userId)
+        console.log('recipeId: ', recipeId)
+        console.log('formData: ', formData)
+        axiosWithAuth()
+        .put(`/api/recipes/${userId}/${recipeId}/image`, formData)
+        .then(res => {
+            console.log('updateRecipe: ', res.data)
+            dispatch({
+                type: RECIPES_POST_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            console.log('updateRecipe err: ', err.response)
+            dispatch({
+                type: RECIPES_POST_ERROR,
+                payload: err.response
+            })
+        })
+    })
+    .catch(err => {
+        console.log('postRecipe err: ', err)
         dispatch({
-            type: RECIPES_POST_SUCCESS,
+            type: RECIPES_POST_ERROR,
+            payload: err.response
+        })
+    })
+};
+
+export const putRecipeImage = (formData, userId, recipeId) => dispatch => {
+    console.log('formData: ', formData)
+    console.log('userId: ', userId)
+    console.log('recipeId: ', recipeId)
+    dispatch({ type: RECIPES_PUT_INIT })
+    axiosWithAuth()
+    .put(`/api/recipes/${userId}/${recipeId}/image`, formData)
+    .then(res => {
+        console.log('updateRecipe: ', res.data)
+        dispatch({
+            type: RECIPES_PUT_SUCCESS,
             payload: res.data
         })
     })
     .catch(err => {
-        console.log('postRecipe err: ', err.response)
+        console.log('updateRecipe err: ', err.response)
         dispatch({
-            type: RECIPES_POST_ERROR,
+            type: RECIPES_PUT_ERROR,
             payload: err.response
         })
     })
