@@ -71,14 +71,23 @@ html {
         padding: 0 0 1%;
         box-shadow: 2px 3px 4px rgba(0, 0, 2, 0.225);
         position: fixed;
+        @media (max-width: 480px) {
+            padding: 1% 0 0;
+        }
 
         .links-container {
+            border: 2px solid green;
             width: 24%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             padding: 1% 0 0;
             list-style-type: none;
+            @media (max-width: 480px) {
+                width: 46%;
+                justify-content: flex-start;
+                padding: 0 0 0 2%;
+            }
             .link {
                 text-decoration: none;
                 color: black;
@@ -97,6 +106,9 @@ html {
             @media (max-width: 768px) {
                 width: 38%;
             }
+            @media (max-width: 480px) {
+                display: none;
+            }
 
             .app-title {
                 width: 100%;
@@ -113,6 +125,7 @@ html {
         }
 
         .user-data-container {
+            border: 2px solid purple;
             width: 26%;
             display: flex;
             flex-wrap: wrap;
@@ -123,8 +136,13 @@ html {
             @media (max-width: 768px) {
                 width: 36%;
             }
+            @media (max-width: 480px) {
+                width: 48%;
+                padding: 0;
+            }
 
             .links-container {
+                border: 2px solid blue;
                 width: 60%;
                 display: flex;
                 flex-wrap: wrap;
@@ -278,7 +296,6 @@ html {
             }
             
             .recipe-list {
-                border: 2px solid green;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
