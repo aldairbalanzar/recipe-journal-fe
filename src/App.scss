@@ -232,7 +232,7 @@ html {
                 padding: 0 2%;
             }
             @media (max-width: 480px) {
-                padding: 0 8%;
+                padding: 0 4%;
             }
     
             .dashboard-actions-container {
@@ -278,6 +278,7 @@ html {
             }
             
             .recipe-list {
+                border: 2px solid green;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -323,10 +324,10 @@ html {
                         justify-content: space-around;
                     }
                     @media (max-width: 480px) {
-                        width: 96%;
+                        width: 100%;
                         justify-content: space-around;
-                        height: 420px;
-                        margin: 3%;
+                        height: 460px;
+                        margin: 3% 0;
                     }
                     &:hover {
                         transform: scale(1.02);
@@ -497,6 +498,9 @@ html {
             justify-content: space-between;
             padding: 3% 2%;
             margin: 3% 0 0;
+            @media (max-width: 480px) {
+                width: 96%;
+            }
     
             .header-container {
                 width: 100%;
@@ -537,14 +541,24 @@ html {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
+                @media (max-width: 480px) {
+                    width: 100%;
+                }
     
                 .description {
                     width: 100%;
                     padding: 1% 3%;
+                    @media (max-width: 480px) {
+                        padding: 0;
+                        margin: 1% 0;
+                    }
                 }
         
                 .recipe-info-container {
                     width: 100%;
+                    @media (max-width: 480px) {
+                        margin: 1% 0;
+                    }
                     
                     .recipe-info {
                         width: 100%;
@@ -558,6 +572,9 @@ html {
                     justify-content: center;
                     font-weight: bolder;
                     padding: 8% 0;
+                    @media (max-width: 480px) {
+                        justify-content: flex-start;
+                    }
     
                     div {
                         width: auto;
@@ -568,6 +585,9 @@ html {
     
                 .recipe-ingredients-container {
                     width: 48%;
+                    @media (max-width: 480px) {
+                        margin: 3% 0;
+                    }
     
                     .add-ingredient-form {
                         width: 100%;
@@ -577,6 +597,9 @@ html {
     
                 .recipe-steps-container {
                     width: 48%;
+                    @media (max-width: 480px) {
+                        margin: 3% 0;
+                    }
     
                     .add-step-form {
                         width: 100%;
@@ -586,6 +609,9 @@ html {
             }
             .image-container {
                 width: 58%;
+                @media (max-width: 480px) {
+                    width: 100%;
+                }
                 .recipe-image {
                     max-width: 100%;
                     height: 360px;
