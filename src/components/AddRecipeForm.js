@@ -74,6 +74,7 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.recipeName}
                     placeholder='Recipe Name'
                     floatingLabelText='Recipe Name'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -88,6 +89,7 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.description}
                     placeholder='Description'
                     floatingLabelText='Description'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -100,6 +102,7 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.prepTime}
                     placeholder='Prep Time'
                     floatingLabelText='Prep Time'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -112,6 +115,7 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.cookTime}
                     placeholder='Cook Time'
                     floatingLabelText='Cook Time'
+                    fullWidth='true'
                     />
                 </label>
 
@@ -124,10 +128,11 @@ const AddRecipeForm = (props) => {
                     value={newRecipe.yields}
                     placeholder='Yields'
                     floatingLabelText='Yields'
+                    fullWidth='true'
                     />
                 </label>
 
-                <div className='button-container'>
+                <div className='button-container-add-recipe'>
                     <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
                 </div>
             </form>

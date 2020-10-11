@@ -458,6 +458,9 @@ html {
             margin: 2% 0 1%;
             border-radius: 7px;
             background-color: rgb(237, 241, 247);
+            @media (max-width: 480px) {
+                padding: 2% 3%;
+            }
     
             .form-title {
                 width: 100%;
@@ -468,18 +471,25 @@ html {
     
             .field-container {
                 width: 40%;
+                @media (max-width: 480px) {
+                    width: 96%;
+                }
             }
 
             .field-container-image {
                 width: 100%;
             }
     
-            .button-container {
+            .button-container-add-recipe {
                 width: 40%;
                 display: flex;
                 flex-direction: column-reverse;
                 flex-wrap: wrap;
                 justify-content: flex-start;
+                @media (max-width: 480px) {
+                    width: 100%;
+                    flex-direction: column;
+                }
     
                 .button-submit {
                     width: 100%;
