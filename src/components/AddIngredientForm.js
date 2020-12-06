@@ -30,7 +30,7 @@ const AddIngredientForm = (props) => {
 
     return (
         <div className='form-container'>
-            <p>Ingredinet Form</p>
+            <p>Ingredient Form</p>
             <form className='add-ingredient-form' onSubmit={handleSubmit}>
                 <label className='field-container'>
                     <TextField
