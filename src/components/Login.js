@@ -74,7 +74,7 @@ const Login = (props) => {
         <RaisedButton className='button-submit' type='submit'>Submit</RaisedButton>
       </form>
 
-      <p>{props.userData.message ? props.userData.message : null}</p>
+      <p>{ message ? message : props.userData.message }</p>
     </div>
   )
 }

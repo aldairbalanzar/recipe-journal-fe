@@ -61,11 +61,6 @@ const recipesReducer = (state=init, action={}) => {
                 message: action.payload,
                 isPosting: false
             }
-        case RECIPES_POST_INIT:
-            return {
-                ...state,
-                isPutting: true,
-            }
         case RECIPES_PUT_SUCCESS:
             return {
                 ...state,

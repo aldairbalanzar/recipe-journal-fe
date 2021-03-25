@@ -10,7 +10,6 @@ const RecipeCard = (props) => {
 
     const [isUpdating, setIsUpdating] = useState(false)
     const [recipeToUpdate, setRecipeToUpdate] = useState()
-    const [message, setMessage] = useState('')
 
     const toggleIsUpdating = (recipeId) => {
         if(isUpdating === false) {
