@@ -46,7 +46,6 @@ const authReducer = (state=init, action={}) => {
             return {
                 ...state,
                 message: action.payload.errorMessage,
-                message: action.payload.data.errorMessage,
                 isPostingCredentials: false
             }
         case LOGOUT_INIT:
