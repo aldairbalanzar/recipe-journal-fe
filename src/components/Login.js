@@ -24,6 +24,7 @@ const Login = (props) => {
   const handleSubmit = e => {
     e.preventDefault()
 
+    setMessage('')
     if(!credentials.username || !credentials.password) {
         setMessage('Please provide required credentials before submitting')
         return
